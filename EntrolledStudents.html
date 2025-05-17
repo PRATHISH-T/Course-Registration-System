@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>Entrolled</title>
+    <script src="MyEntrolled.js" type="text/javascript"></script>
+    <style>
+         body{
+            background: linear-gradient(120deg, rgb(62, 47, 47), rgb(49, 49, 49), black);
+        }
+        h1{
+            background-color: black;
+            color: gold;
+            border-bottom: 3px solid gold;
+            padding: 20px 20px;
+            letter-spacing: 20px;
+            text-align: center;
+        }
+        table{
+            margin-top: 100px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+        th{
+            background-color: rgb(0, 0, 0);
+            color: gold;
+            padding: 10px 10px;
+
+        }
+        tbody{
+            background: linear-gradient(120deg,gold,white);
+        }
+         footer {
+            margin-top: 60px;
+            padding: 20px;
+            height: 40px;
+            background: black;
+            color: gold;
+            font-size: 1em;
+            position: relative;
+            text-align: center;
+        }
+
+        footer:hover {
+            text-shadow: 0 0 20px gold;
+        }
+
+        footer a img {
+            background-color: black;
+            border-radius: 50%;
+            margin: 0 30px;
+            transition: transform 0.3s ease ;
+        }
+
+        footer a img:hover {
+            background-color: gold;
+            transform: scale(1.2);
+        }
+            </style>
+
+</head>
+
+<body>
+    <center><h1>Entrolled Students</h1></center>
+    <table border="1" align="center" style="background-color: rgb(255, 255, 255);">
+        <tr align="center" style="background-color: rgb(168, 124, 208);">
+            <th width="100">Id</th>
+            <th width="150">Name</th>
+            <th width="150">Email Id</th>
+            <th width="140">Course Name</th>
+        </tr>
+        <tbody id="Entrolled" align="center"></tbody>
+    </table>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            showEntrolledStudents();
+        }
+    </script>
+    <center>
+        <footer> &COPY; Done by PRATHISH T
+            <a href="https://github.com/PRATHISH-T">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+                    width="30" height="30">
+            </a>
+            <a href="https://www.linkedin.com/in/prathish-t-1a5a69278/">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"
+                    width="30" height="30">
+            </a>
+        </footer>
+    </center>
+</body>
+
+</html>

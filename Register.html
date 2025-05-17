@@ -1,0 +1,169 @@
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, rgb(62, 47, 47), rgb(49, 49, 49), black);
+        }
+
+        h1 {
+            background-color: black;
+            color: gold;
+            padding: 20px 20px;
+            border-bottom: 5px solid gold;
+            text-align: center;
+        }
+
+        form {
+            background-color: black;
+            width: 450px;
+            height: auto;
+            color: white;
+            margin-top: 180px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            border-radius: 20px;
+        }
+        table{
+            margin-left: 40px;
+            border-collapse: collapse;
+            color:gold;
+        }
+        input{
+            background-color:rgb(120, 118, 106);
+            color: rgb(255, 253, 241);
+            padding: 2px;
+            border-radius: 5px;
+        }
+        select{
+            background-color:rgb(120, 118, 106);
+            padding: 2px;
+            border-radius: 5px;
+            color: white;
+        }
+        select:hover,select option:hover{
+            background-color: black;
+        }
+        button{
+            background-color:gold ;
+            padding: 2px;
+            border-radius: 5px;
+            color: black;
+            width: 100px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: black;
+            color: gold;
+            font-size: 1rem;
+            border-radius: 5px;
+            border-color: gold;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            height: 40px;
+            background: black;
+            color:gold;
+            font-size: 1em;
+            text-align: center;
+        }
+        footer:hover {
+            text-shadow: 0 0 20px gold;
+        }
+
+        footer a img {
+            background-color: black;
+            border-radius: 50%;
+            margin: 0 30px;
+            transition: transform 0.3s ease ;
+        }
+
+        footer a img:hover {
+            background-color: gold;
+            transform: scale(1.2);
+        }
+
+    </style>
+    <h1>Start your course </h1>
+   
+</head>
+
+<body>
+    <center>
+    <form id="enrollForm">
+        <table cellpadding="12px">
+            <tr>
+                <td><label for="name">Enter your name</label> </td>
+                <td>:</td>
+                <td><input type="text" name="name" id="name" required> </td>
+            </tr>
+            <tr>
+                <td> <label for="emailId">Enter email id</label></td>
+                <td>:</td>
+                <td> <input type="email" name="emailId" id="emailId" required> </td>
+            </tr>
+
+            <tr>
+                <td><label for="courseName">Select your course</label> </td>
+                <td>:</td>
+                <td> <select name="courseName" id="courseName" required>
+                        <option value="">Select</option>
+                        <option value="java Essentials">java Essentials</option>
+                        <option value="Python for ML">Python for ML</option>
+                        <option value="Spring Boot">Spring Boot</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                <button onclick="button" id="button">SUBMIT</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <footer> &COPY; Done by PRATHISH T
+        <a href="https://github.com/PRATHISH-T">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+                width="30" height="30">
+        </a>
+        <a href="https://www.linkedin.com/in/prathish-t-1a5a69278/">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"
+                width="30" height="30">
+        </a>
+    </footer>
+</center>
+</body>
+
+<script>
+    const form = document.getElementById('enrollForm');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // prevent actual form submission
+
+        const name = document.getElementById('name').value;
+        const emailId = document.getElementById('emailId').value;
+        const courseName = document.getElementById('courseName').value;
+
+        fetch('http://localhost:8080/courses/entrolled', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `name=${encodeURIComponent(name)}&emailId=${encodeURIComponent(emailId)}&courseName=${encodeURIComponent(courseName)}`
+        })
+            .then(response => response.text())
+            .then(data => {
+                alert("Enrolled Successfully!");
+                form.reset(); // clear form
+            })
+            .catch(error => {
+                alert("Error during enrollment. Please try again.");
+                console.error("Error:", error);
+            });
+    });
+</script>
+
+</html>
